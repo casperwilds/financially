@@ -1,3 +1,6 @@
+# Data
+res/prod/*
+
 # Logs
 logs
 *.log

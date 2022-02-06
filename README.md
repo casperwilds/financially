@@ -1,2 +1,2 @@
 # financially
-Desktop app built in NodeJS to track Finances and Investments
+Repository for the Financially application and any helper applications

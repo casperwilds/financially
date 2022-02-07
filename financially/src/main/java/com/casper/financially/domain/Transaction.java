@@ -17,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Account {
+public class Transaction {
 
     @Id
     @Column(nullable = false, updatable = false)

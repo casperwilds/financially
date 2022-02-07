@@ -32,6 +32,34 @@ public class TransactionService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    public List<TransactionDTO> getTransactionsByInstitution(final String institution) {
+    	return transactionRepository.findByInstitution(institution)
+    			.stream()
+    			.map(transaction -> mapToDTO(transaction, new TransactionDTO()))
+    			.collect(Collectors.toList());
+    }
+
+    public List<TransactionDTO> getTransactionsByCategory(final String category) {
+    	return transactionRepository.findByCategory(category)
+    			.stream()
+    			.map(transaction -> mapToDTO(transaction, new TransactionDTO()))
+    			.collect(Collectors.toList());
+    }
+
+    public List<TransactionDTO> getTransactionsBySubcategory(final String subcategory) {
+    	return transactionRepository.findBySubcategory(subcategory)
+    			.stream()
+    			.map(transaction -> mapToDTO(transaction, new TransactionDTO()))
+    			.collect(Collectors.toList());
+    }
+
+    public List<TransactionDTO> getTransactionsByCategoryAndSubcategory(final String category, final String subcategory) {
+    	return transactionRepository.findByCategoryAndSubcategory(category, subcategory)
+    			.stream()
+    			.map(transaction -> mapToDTO(transaction, new TransactionDTO()))
+    			.collect(Collectors.toList());
+    }
+
     public Long create(final TransactionDTO transactionDTO) {
         final Transaction transaction = new Transaction();
         mapToEntity(transactionDTO, transaction);

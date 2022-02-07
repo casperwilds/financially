@@ -28,29 +28,50 @@ public class TransactionController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TransactionDTO>> getAllAccounts() {
+    public ResponseEntity<List<TransactionDTO>> getAllTransactions() {
         return ResponseEntity.ok(transactionService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TransactionDTO> getAccount(@PathVariable final Long id) {
+    public ResponseEntity<TransactionDTO> getTransaction(@PathVariable final Long id) {
         return ResponseEntity.ok(transactionService.get(id));
     }
 
+    @GetMapping("/institution/{institution}")
+    public ResponseEntity<List<TransactionDTO>> getTransactionsByInstitution(@PathVariable final String institution) {
+    	return ResponseEntity.ok(transactionService.getTransactionsByInstitution(institution));
+    }
+    
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<TransactionDTO>> getTransactionsByCategory(@PathVariable final String category) {
+    	return ResponseEntity.ok(transactionService.getTransactionsByCategory(category));
+    }
+    
+    @GetMapping("/subcategory/{subcategory}")
+    public ResponseEntity<List<TransactionDTO>> getTransactionsBySubcategory(@PathVariable final String subcategory) {
+    	return ResponseEntity.ok(transactionService.getTransactionsBySubcategory(subcategory));
+    }
+    
+    @GetMapping("/category/{category}/subcategory/{subcategory}")
+    public ResponseEntity<List<TransactionDTO>> getTransactionsByCategoryAndSubcategory(
+    		@PathVariable final String category, @PathVariable final String subcategory) {
+    	return ResponseEntity.ok(transactionService.getTransactionsByCategoryAndSubcategory(category, subcategory));
+    }
+
     @PostMapping
-    public ResponseEntity<Long> createAccount(@RequestBody @Valid final TransactionDTO accountDTO) {
-        return new ResponseEntity<>(transactionService.create(accountDTO), HttpStatus.CREATED);
+    public ResponseEntity<Long> createTransaction(@RequestBody @Valid final TransactionDTO transactionDTO) {
+        return new ResponseEntity<>(transactionService.create(transactionDTO), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateAccount(@PathVariable final Long id,
-            @RequestBody @Valid final TransactionDTO accountDTO) {
-    	transactionService.update(id, accountDTO);
+    public ResponseEntity<Void> updateTransaction(@PathVariable final Long id,
+            @RequestBody @Valid final TransactionDTO transactionDTO) {
+    	transactionService.update(id, transactionDTO);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAccount(@PathVariable final Long id) {
+    public ResponseEntity<Void> deleteTransaction(@PathVariable final Long id) {
     	transactionService.delete(id);
         return ResponseEntity.noContent().build();
     }

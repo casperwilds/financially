@@ -1,6 +1,14 @@
 # Financially
 
+## Setup
+Clone this repository using Git Bash in the directory of your workspace:
+
+```bash
+git clone https://github.com/casperwilds/financially.git
+```
+
 # Spring Boot
+
 ## Swagger - API Viewing and Testing
 Run project
 Goto http://localhost:8080/swagger-ui.index.html
@@ -11,21 +19,34 @@ Goto http://localhost:8080/h2-console/
 
 
 # ReactJS
+
 ## Prerequisites
 
 Install [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 Install [CMake](https://cmake.org/download/)
 Install [Node.js](https://nodejs.org/en/download/) and [npm](http://npmjs.com)) (Comes with Node installation)
 Install [Git](https://git-scm.com)
+Install create-react-app via cmd: npx install -g create-react-app
 
-## Setup
+##
+Creating react app (cmds):
+cd src/main
+npx create-react-app financially
+mv financially ui
 
-Clone this repository using Git Bash in the directory of your workspace:
+### To Start UI
+cd src/main/ui
+yarn run start
 
-```bash
-git clone https://github.com/casperwilds/financially.git
-```
 
+# Packaging and Running Application
+## Packaging application
+mvn package
+## Running application
+java -jar target/<app-name>-VERSION.jar
+
+
+# Archive Instructions
 Install the app
 
 ```bash

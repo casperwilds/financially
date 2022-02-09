@@ -1,5 +1,16 @@
 # Financially
 
+# Spring Boot
+## Swagger - API Viewing and Testing
+Run project
+Goto http://localhost:8080/swagger-ui.index.html
+
+## Launch H2 Manager
+Run project
+Goto http://localhost:8080/h2-console/
+
+
+# ReactJS
 ## Prerequisites
 
 Install [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads)

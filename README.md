@@ -9,6 +9,8 @@ git clone https://github.com/casperwilds/financially.git
 
 # Spring Boot
 
+Execute project: mvn spring-boot:run
+
 ## Swagger - API Viewing and Testing
 Run project
 Goto http://localhost:8080/swagger-ui.index.html
